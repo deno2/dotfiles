@@ -227,8 +227,8 @@
 (display-time)
 
 ;; jvm-mode
-(maybe-install-and-require 'jvm-mode)
-(jvm-mode)
+;(maybe-install-and-require 'jvm-mode)
+;(jvm-mode)
 
 (winner-mode)       ;; C-c right/left
 (show-paren-mode)
@@ -386,3 +386,18 @@
   (unless (getenv "TMUX")
     (setq interprogram-cut-function 'paste-to-osx)
     (setq interprogram-paste-function 'copy-from-osx)))
+
+
+
+;; ================
+;; pbcopy.el
+;(add-to-list 'load-path "~/.emacs.d/")
+(load "~/.emacs.d/pbcopy")
+(require 'pbcopy)
+(turn-on-pbcopy)
+
+;; turn on sane copy/paste
+(cua-mode t)
+(setq cua-auto-tabify-rectangles nil)
+(transient-mark-mode 1)
+(setq cua-keep-region-after-copy t)
