@@ -142,11 +142,11 @@
 (add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
 
 ;; hl-sexp
-(maybe-install-and-require 'hl-sexp)
-(add-hook 'clojure-mode-hook 'hl-sexp-mode)
-(add-hook 'lisp-mode-hook 'hl-sexp-mode)
-(add-hook 'scheme-mode-hook 'hl-sexp-mode)
-(add-hook 'emacs-lisp-mode-hook 'hl-sexp-mode)
+;(maybe-install-and-require 'hl-sexp)
+;(add-hook 'clojure-mode-hook 'hl-sexp-mode)
+;(add-hook 'lisp-mode-hook 'hl-sexp-mode)
+;(add-hook 'scheme-mode-hook 'hl-sexp-mode)
+;(add-hook 'emacs-lisp-mode-hook 'hl-sexp-mode)
 
 ;; idle-highlight-mode
 (maybe-install-and-require 'idle-highlight-mode)
@@ -236,10 +236,7 @@
 (column-number-mode t)
 
 ;; =============================================================
-;; Color theme
 
-(maybe-install-and-require 'cyberpunk-theme)
-(load-theme 'cyberpunk t)
 
 ;; =============================================================
 ;; Key bindings
@@ -401,3 +398,27 @@
 (setq cua-auto-tabify-rectangles nil)
 (transient-mark-mode 1)
 (setq cua-keep-region-after-copy t)
+
+
+;; Color THeme
+
+;(maybe-install-and-require 'cyberpunk-theme)
+
+;(load-theme 'cyberpunk t)
+
+;(load-theme 'dakrone t)
+;(load-theme 'flatui t)
+(load-theme 'flatland t)
+;(hl-sexp-mode -1)
+
+;(global-hl-sexp-mode nil)
+
+
+
+
+
+
+
+
+
+;; END
