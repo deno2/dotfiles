@@ -408,7 +408,7 @@
 
 ;(load-theme 'dakrone t)
 ;(load-theme 'flatui t)
-(maybe-install-and-require 'flatland)
+(maybe-install-and-require 'flatland-theme)
 (load-theme 'flatland t)
 ;(hl-sexp-mode -1)
 
