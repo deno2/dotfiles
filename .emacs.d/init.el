@@ -279,7 +279,7 @@
 
 ;; ERC
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
-(setq erc-nick "martintrojer")
+(setq erc-nick "dene")
 
 ;; =============================================================
 ;; Settings
@@ -408,6 +408,7 @@
 
 ;(load-theme 'dakrone t)
 ;(load-theme 'flatui t)
+(maybe-install-and-require 'flatland)
 (load-theme 'flatland t)
 ;(hl-sexp-mode -1)
 
