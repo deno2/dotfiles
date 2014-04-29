@@ -6,6 +6,7 @@
                   [lein-release "1.0.5"]
                   [lein-try "0.4.1"]
                   [lein-vanity "0.2.0"]
+                  [cider/cider-nrepl "0.6.1-SNAPSHOT"]
                   [org.clojars.kurtharriger/lein-depgraph "0.1.0"]
                   [lein-pprint "1.1.1"]]
         :dependencies [[clojure-complete "0.2.3"]
