@@ -158,7 +158,7 @@
 ;; Golden Ratio
 (maybe-install-and-require 'golden-ratio)
 (diminish 'golden-ratio-mode "AU")
-(golden-ratio-mode 1)
+(golden-ratio-mode 0)
 (add-to-list 'golden-ratio-exclude-modes "ediff-mode")
 
 ;; undo-tree
@@ -414,9 +414,15 @@
 
 ;(global-hl-sexp-mode nil)
 
+(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-C-<down>") 'shrink-window)
+(global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
-
-
+(when (equal "xterm-256color" (tty-type))
+  (define-key input-decode-map "\e[1;2A" [S-up])
+  (xterm-mouse-mode t)
+  (menu-bar-mode 0))
 
 
 
