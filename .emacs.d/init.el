@@ -40,6 +40,8 @@
 (maybe-install-and-require 'clojure-test-mode)
 (setq auto-mode-alist (cons '("\\.cljs$" . clojure-mode) auto-mode-alist))
 
+
+
 ;; Tuareg / OCaml
 (setq save-abbrevs nil)
 (diminish 'abbrev-mode)
@@ -73,6 +75,7 @@
 (diminish 'cider-mode " Cdr")
 (setq cider-repl-wrap-history t)
 (setq cider-repl-history-size 1000)
+(setq cider-popup-stacktraces nil)
 (setq cider-repl-history-file "~/.emacs.d/cider-history")
 (add-hook 'cider-repl-mode-hook 'subword-mode)
 
@@ -140,6 +143,7 @@
 (diminish 'eldoc-mode "ED")
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
 
 ;; hl-sexp
 ;(maybe-install-and-require 'hl-sexp)
@@ -175,17 +179,22 @@
 (yas-load-directory "~/.emacs.d/snippets")
 
 ;; auto-complete
-(maybe-install-and-require 'auto-complete)
-(diminish 'auto-complete-mode)
-(require 'auto-complete-config)
-(ac-config-default)
-(global-auto-complete-mode t)
-(setq ac-auto-show-menu t)
-(setq ac-dwim t)
-(setq ac-use-menu-map t)
-(setq ac-delay 0.3)
-(setq ac-quick-help-delay 1)
-(setq ac-quick-help-height 60)
+;; (maybe-install-and-require 'auto-complete)
+;; (diminish 'auto-complete-mode)
+;; (require 'auto-complete-config)
+;; (ac-config-default)
+;; (global-auto-complete-mode t)
+;; (setq ac-auto-show-menu t)
+;; (setq ac-dwim t)
+;; (setq ac-use-menu-map t)
+;; (setq ac-delay 0.3)
+;; (setq ac-quick-help-delay 1)
+;; (setq ac-quick-help-height 60)
+
+;; company mode
+(maybe-install-and-require 'company)
+(diminish 'company-mode)
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;; browse-kill-ring
 (maybe-install-and-require 'browse-kill-ring)
@@ -225,6 +234,14 @@
 (setq display-time-24hr-format t)
 (setq display-time-load-average t)
 (display-time)
+
+;; linum
+(if window-system
+    (setq linum-format "%d")
+  (setq linum-format "%d "))
+(setq linum-modes '(clojure-mode emacs-lisp-mode tuareg-mode puppet-mode ruby-mode markdown-mode python-mode js-mode css-mode c-mode-common))
+(--each linum-modes (add-hook (intern (s-concat (symbol-name it) "-hook")) 'linum-mode))
+
 
 ;; jvm-mode
 ;(maybe-install-and-require 'jvm-mode)
